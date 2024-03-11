@@ -5,7 +5,7 @@ import universityPic from '../../assets/images/university.png';
 import { useNavigate } from 'react-router-dom'
 import { auth, database } from '../../firebase.js';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { ref, set, push } from 'firebase/database';
+import { ref, set, } from 'firebase/database';
 
 const Registration = () => {
     const [userType, setUserType] = useState('');
@@ -42,10 +42,10 @@ const Registration = () => {
                 createUserWithEmailAndPassword(auth, userEmail, userPassword);
                 const newUser = userCredential.user;
     
-                const userRef = ref(database, 'users/');
-                const newUserRef = push(userRef);
+                const userRef = ref(database, 'student/' + newUser.uid);
+              
     
-                await set(newUserRef, {
+                await set(userRef, {
                     userType: "student",
                     userName: userName,
                     userGender: userGender,
@@ -60,10 +60,10 @@ const Registration = () => {
                 const userCredential = await createUserWithEmailAndPassword(auth, insEmail, insPassword);
                 const newUser = userCredential.user;
     
-                const insRef = ref(database, 'institution/');
-                const newInsRef = push(insRef);
+                const insRef = ref(database, 'institution/' + newUser.uid);
+
     
-                await set(newInsRef, {
+                await set(insRef, {
                     userType: "institution",
                     insName: insName,
                     insGrade: insGrade,
