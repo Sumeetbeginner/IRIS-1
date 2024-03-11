@@ -112,7 +112,7 @@
 
 font-size: 17px;
 text-align: center;
-margin-top: 10%;
+margin-top:5%;
 
 }
 
@@ -181,6 +181,21 @@ margin-top: 10%;
     display: block;
     margin: auto;
     margin-top: 8%;
+}
+
+.btnR{
+    background-color: var(--material);
+    font-size: 17px;
+    height: 6vh;
+    width: 50%;
+    border-radius: 10px;
+    color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    display: block;
+    margin: auto;
+    margin-top: 7%;
 }
 
 .appL{
